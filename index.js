@@ -44,4 +44,40 @@ const bookStore = {
 }
 
 // Write your code here!
+//Step 2: Selecting the header ID and update the title to the name property of bookStore
+const bookStoreTitle = document.querySelector('#header');
+bookStoreTitle.textContent = bookStore.name;
+
+//Step 3 Create elements for each book
+bookStore['books'].forEach(book => {
+    const bookContainer = document.createElement('li');
+    const bookTitle = document.createElement('h3');
+    const bookAuthor= document.createElement('p');
+    const bookImage = document.createElement('img');
+    const bookList = document.querySelector('#book-list');
+
+//Add textContent to variable
+    bookTitle.textContent = book.title;
+    bookAuthor.textContent = book.author;
+    bookImage.src = book.imageUrl;
+
+//Append to bookContainer
+    bookContainer.append(bookTitle);
+    bookContainer.append(bookAuthor);
+    bookContainer.append(bookImage);
+
+//Append bookContainer to bookList
+    bookList.append(bookContainer);
+});
+
+//Bonus: Remove Elements from the Dom
+const ul = document.querySelector('#book-list');
+const firstChild = ul.querySelector('li');
+ul.removeChild(firstChild);
+//ul.remove();
+
+
+
+
+
 
